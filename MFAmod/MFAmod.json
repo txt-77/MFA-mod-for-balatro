@@ -1,0 +1,16 @@
+{
+	"id": "MFAmod",
+	"name": "MFAmod",
+	"display_name": "MFAmod",
+	"author": ["TXT ,Ghonca and Cd"],
+	"description": "just a mod made by a group of friends",
+	"prefix": "mfamod",
+	"main_file": "core.lua",
+	"priority": 100,
+	"badge_colour": "a503fc",
+	"badge_text_colour": "FFFFFF",
+	"version": "0.0.1",
+	"dependencies": ["Steamodded (>=1.*)",
+                     "Balatro (>=1.0.1m)"
+]
+}
