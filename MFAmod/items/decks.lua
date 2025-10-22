@@ -12,10 +12,10 @@
 SMODS.Back({
     key = "teste deck",
     loc_txt = {
-        name = "Deck de teste",
+        name = "test deck",
         text={
-        "começa com as adiçoes",
-        "para fazer teste",
+        "start with the new",
+        "jokers for test reasons",
         },
     },
 	
@@ -30,6 +30,10 @@ SMODS.Back({
 			func = function()
 				if G.jokers then
                     local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "J_mfamod_brigtheyes", "mfamod_deck")
+                    card:add_to_deck()
+                    --card:start_materialize()
+                    G.jokers:emplace(card)
+                    local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "J_mfamod_1x", "mfamod_deck")
                     card:add_to_deck()
                     --card:start_materialize()
                     G.jokers:emplace(card)
