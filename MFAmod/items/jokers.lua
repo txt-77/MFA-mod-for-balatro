@@ -52,14 +52,7 @@ SMODS.Joker{
                 }
             end
         end
-    end,
-    check_for_unlock = function(self, args)
-        if args.type == 'test' then
-            unlock_card(self)
-            
-        end
-        unlock_card(self)
-    end,
+    end
 }
 --1x1x1x1x1x1x1x1x1x1x1x1x1x1x1x1x1x1x1x1x1x1x1x1x1x1x
 SMODS.Atlas{
@@ -119,13 +112,7 @@ SMODS.Joker{
                 }
             end
         end
-    end,
-    check_for_unlock = function(self, args)
-        if args.type == 'test' then
-            unlock_card(self)
-        end
-        unlock_card(self)
-    end,
+    end
 }
 
 

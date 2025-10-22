@@ -46,14 +46,6 @@ SMODS.Back({
 			end,
 		}))
 	end,
-
-	check_for_unlock = function(self, args)
-		if args.type == "win_deck" then
-            unlock_card(self)
-        else
-			unlock_card(self)
-		end
-	end,
 })
 
 ----------------------------------------------
