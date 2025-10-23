@@ -173,7 +173,7 @@ SMODS.Joker{
     loc_txt= {
         name = 'guest 1337',
         text = {
-            "{C:green}1 in 4{}chance to",
+            "{C:green}#1# in #2#{}chance to",
             "cut the blind by 1/3 of the ",
             "requeried score in the start of a round",
         }
@@ -252,6 +252,58 @@ SMODS.Joker{
             card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmultgain
                 return {
                     message = 'fat ass',
+                    colour = G.C.XMult
+                }
+        end
+    end
+}
+
+--russian roulette
+SMODS.Atlas{
+    key='dog1',
+    path='jackblack.png',
+    px=70,
+    py=95,
+}
+SMODS.Joker{
+    key = 'dog1',
+    loc_txt= {
+        name = 'russian roulette',
+        text = {
+            "If played hand is a ",
+            "hearths straight flush",
+            "gain {X:mult,C:white}X#1#{} Mult",
+            "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} mult)"
+        }
+    },
+    atlas = 'dog1',
+    rarity = 2,
+    cost = 8,
+    pools = {["MFAmodaddition"] = true},
+    unlocked = true,
+    discovered = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    pos = {x=0, y=0},
+    config = {
+        extra = {
+            Xmult = 2,odds=6,
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { center.ability.extra.Xmult } }
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            return {
+                Xmult_mod = card.ability.extra.Xmult
+            }
+        end
+        if context.end_of_round and context.game_over == false and next(context.poker_hands[card.ability.extra.type])and context.cardarea == G.play and
+        context.other_card:is_suit(card.ability.extra.suit) then
+            card.ability.extra.Xmult = card.ability.extra.Xmult * 2
+                return {
+                    message = 'lucky',
                     colour = G.C.XMult
                 }
         end
